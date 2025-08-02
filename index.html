@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parler TTS Comparison Demo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #222;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .model-section {
+      margin-bottom: 4rem;
+    }
+
+    .model-title {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #2c3e50;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.5rem;
+    }
+
+    .samples-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .sample {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s;
+    }
+
+    .sample:hover {
+      transform: translateY(-3px);
+    }
+
+    .sample p {
+      margin: 0 0 0.5rem;
+      font-weight: bold;
+    }
+
+    audio {
+      width: 100%;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      color: #999;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Text-to-Speech Model Comparison</h1>
+
+  <div class="model-section">
+    <div class="model-title">Initial Fine-tuning</div>
+    <div class="samples-grid">
+      <div class="sample">
+        <p>Sample 1</p>
+        <audio controls src="samples/parler_tts_greek_finetuning/sentence_1.wav"></audio>
+      </div>
+      <div class="sample">
+        <p>Sample 2</p>
+        <audio controls src="samples/parler_tts_greek_finetuning/sentence_2.wav"></audio>
+      </div>
+      <!-- Add more samples here -->
+    </div>
+  </div>
+
+  <div class="model-section">
+    <div class="model-title">Deterministic prompt Fine-tuning</div>
+    <div class="samples-grid">
+      <div class="sample">
+        <p>Sample 1</p>
+        <audio controls src="samples/deterministic_prompts/sentence_1.wav"></audio>
+      </div>
+      <div class="sample">
+        <p>Sample 2</p>
+        <audio controls src="samples/deterministic_prompts/sentence_2.wav"></audio>
+      </div>
+      <!-- Add more samples here -->
+    </div>
+  </div>
+
+
+  <div class="model-section">
+    <div class="model-title">Speaker-Specific Fine-tuning</div>
+    <div class="samples-grid">
+      <div class="sample">
+        <p>Sample 1</p>
+        <audio controls src="samples/speaker_specific/sentence_1.wav"></audio>
+      </div>
+      <div class="sample">
+        <p>Sample 2</p>
+        <audio controls src="samples/speaker_specific/sentence_2.wav"></audio>
+      </div>
+      <!-- Add more samples here -->
+    </div>
+  </div>
+  <footer>
+    © 2025 Your Name – TTS Demo Page
+  </footer>
+</body>
+</html>
