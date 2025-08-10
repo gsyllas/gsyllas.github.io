@@ -15,7 +15,15 @@
     h1 {
       text-align: center;
       font-size: 2.5rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .intro-text {
+      max-width: 900px;
+      margin: 0 auto 2rem auto;
+      line-height: 1.6;
+      font-size: 1.1rem;
+      color: #333;
     }
 
     .model-section {
@@ -68,6 +76,21 @@
 <body>
   <h1>Text-to-Speech Model Comparison</h1>
 
+  <div class="intro-text">
+    To develop a text-to-speech system for Modern Greek under low-resource
+    conditions—both in terms of data availability (limited greek tts datasets
+    available) and computational resources—we explored fine-tuning pre-trained
+    models from other languages to leverage the benefits of transfer learning. The
+    first stage of experimentation involved fine-tuning a pretrained VITS model
+    using the CSS10 Greek dataset (approximately 4 hours, single speaker) and
+    additional voice-cloned Common Voice data generated via Seed-VC. To im-
+    prove data quality and diversity, we curated two Greek datasets from pub-
+    lic audiobooks using WhisperX. Due to VITS’s limitations, we pivoted to
+    Parler-TTS, a multilingual model inspired by MusicGen. This architecture
+    integrates a Flan-T5 encoder, an autoregressive audio token decoder, and the
+    Descript Audio Codec (DAC).
+  </div>
+
   <div class="model-section">
     <div class="model-title">Initial Fine-tuning</div>
     <div class="samples-grid">
@@ -78,6 +101,18 @@
       <div class="sample">
         <p>Sample 2</p>
         <audio controls src="samples/parler_tts_greek_finetuning/sentence_2.wav"></audio>
+      </div>
+      <div class="sample">
+        <p>Sample 3</p>
+        <audio controls src="samples/parler_tts_greek_finetuning/sentence_3.wav"></audio>
+      </div>
+      <div class="sample">
+        <p>Sample 4</p>
+        <audio controls src="samples/parler_tts_greek_finetuning/sentence_4.wav"></audio>
+      </div>
+      <div class="sample">
+        <p>Sample 5</p>
+        <audio controls src="samples/parler_tts_greek_finetuning/sentence_5.wav"></audio>
       </div>
       <!-- Add more samples here -->
     </div>
@@ -94,10 +129,21 @@
         <p>Sample 2</p>
         <audio controls src="samples/deterministic_prompts/sentence_2.wav"></audio>
       </div>
+      <div class="sample">
+        <p>Sample 3</p>
+        <audio controls src="samples/deterministic_prompts/sentence_3.wav"></audio>
+      </div>
+      <div class="sample">
+        <p>Sample 4</p>
+        <audio controls src="samples/deterministic_prompts/sentence_4.wav"></audio>
+      </div>
+      <div class="sample">
+        <p>Sample 5</p>
+        <audio controls src="samples/deterministic_prompts/sentence_5.wav"></audio>
+      </div>
       <!-- Add more samples here -->
     </div>
   </div>
-
 
   <div class="model-section">
     <div class="model-title">Speaker-Specific Fine-tuning</div>
@@ -109,6 +155,46 @@
       <div class="sample">
         <p>Sample 2</p>
         <audio controls src="samples/speaker_specific/sentence_2.wav"></audio>
+      </div>
+      <div class="sample">
+        <p>Sample 3</p>
+        <audio controls src="samples/speaker_specific/sentence_3.wav"></audio>
+      </div>
+      <div class="sample">
+        <p>Sample 4</p>
+        <audio controls src="samples/speaker_specific/sentence_4.wav"></audio>
+      </div>
+      <div class="sample">
+        <p>Sample 5</p>
+        <audio controls src="samples/speaker_specific/sentence_5.wav"></audio>
+      </div>
+      <!-- Add more samples here -->
+    </div>
+  </div>
+
+
+  <div class="model-section">
+    <div class="model-title">LORA Speaker-Specific Fine-tuning</div>
+    <div class="samples-grid">
+      <div class="sample">
+        <p>Sample 1</p>
+        <audio controls src="samples/lora_specific_speaker/sentence_1.wav"></audio>
+      </div>
+      <div class="sample">
+        <p>Sample 2</p>
+        <audio controls src="samples/lora_specific_speaker/sentence_2.wav"></audio>
+      </div>
+      <div class="sample">
+        <p>Sample 3</p>
+        <audio controls src="samples/lora_specific_speaker/sentence_3.wav"></audio>
+      </div>
+      <div class="sample">
+        <p>Sample 4</p>
+        <audio controls src="samples/lora_specific_speaker/sentence_4.wav"></audio>
+      </div>
+      <div class="sample">
+        <p>Sample 5</p>
+        <audio controls src="samples/lora_specific_speaker/sentence_5.wav"></audio>
       </div>
       <!-- Add more samples here -->
     </div>
