@@ -26,43 +26,42 @@
       color: #333;
     }
 
-    .model-section {
-      margin-bottom: 4rem;
-    }
-
-    .model-title {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      color: #2c3e50;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 0.5rem;
-    }
-
-    .samples-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .sample {
-      background: #fff;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
       border-radius: 12px;
-      padding: 1rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s;
+      overflow: hidden;
     }
 
-    .sample:hover {
-      transform: translateY(-3px);
+    thead {
+      background: #2c3e50;
+      color: white;
     }
 
-    .sample p {
-      margin: 0 0 0.5rem;
+    th, td {
+      padding: 0.75rem;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      vertical-align: middle;
+    }
+
+    td:first-child {
+      text-align: left;
       font-weight: bold;
+      font-size: 0.95rem;
+      color: #333;
+      width: 25%;
     }
 
     audio {
       width: 100%;
+      max-width: 250px;
+    }
+
+    tr:hover {
+      background: #f0f3f8;
     }
 
     footer {
@@ -78,127 +77,95 @@
 
   <div class="intro-text">
     To develop a text-to-speech system for Modern Greek under low-resource
-    conditions—both in terms of data availability (limited greek tts datasets
-    available) and computational resources—we explored fine-tuning pre-trained
-    models from other languages to leverage the benefits of transfer learning. The
-    first stage of experimentation involved fine-tuning a pretrained VITS model
-    using the CSS10 Greek dataset (approximately 4 hours, single speaker) and
-    additional voice-cloned Common Voice data generated via Seed-VC. To im-
-    prove data quality and diversity, we curated two Greek datasets from pub-
-    lic audiobooks using WhisperX. Due to VITS’s limitations, we pivoted to
-    Parler-TTS, a multilingual model inspired by MusicGen. This architecture
-    integrates a Flan-T5 encoder, an autoregressive audio token decoder, and the
-    Descript Audio Codec (DAC).
+    conditions—both in terms of data availability and computational resources—we
+    explored fine-tuning pre-trained models from other languages to leverage
+    transfer learning.
   </div>
 
-  <div class="model-section">
-    <div class="model-title">Initial Fine-tuning</div>
-    <div class="samples-grid">
-      <div class="sample">
-        <p>Sample 1</p>
-        <audio controls src="samples/parler_tts_greek_finetuning/sentence_1.wav"></audio>
-      </div>
-      <div class="sample">
-        <p>Sample 2</p>
-        <audio controls src="samples/parler_tts_greek_finetuning/sentence_2.wav"></audio>
-      </div>
-      <div class="sample">
-        <p>Sample 3</p>
-        <audio controls src="samples/parler_tts_greek_finetuning/sentence_3.wav"></audio>
-      </div>
-      <div class="sample">
-        <p>Sample 4</p>
-        <audio controls src="samples/parler_tts_greek_finetuning/sentence_4.wav"></audio>
-      </div>
-      <div class="sample">
-        <p>Sample 5</p>
-        <audio controls src="samples/parler_tts_greek_finetuning/sentence_5.wav"></audio>
-      </div>
-      <!-- Add more samples here -->
-    </div>
-  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Κείμενο</th>
+        <th>Initial Fine-tuning</th>
+        <th>Deterministic Prompt Fine-tuning</th>
+        <th>Speaker-Specific Fine-tuning</th>
+        <th>LORA Speaker-Specific</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Αυτό είναι ένα δείγμα κειμένου.</td>
+        <td><audio controls src="samples/parler_tts_greek_finetuning/sentence_1.wav"></audio></td>
+        <td><audio controls src="samples/deterministic_prompts/sentence_1.wav"></audio></td>
+        <td><audio controls src="samples/speaker_specific/sentence_1.wav"></audio></td>
+        <td><audio controls src="samples/lora_specific_speaker/sentence_1.wav"></audio></td>
+      </tr>
+      <tr>
+        <td>Μια δεύτερη πρόταση για παράδειγμα.</td>
+        <td><audio controls src="samples/parler_tts_greek_finetuning/sentence_2.wav"></audio></td>
+        <td><audio controls src="samples/deterministic_prompts/sentence_2.wav"></audio></td>
+        <td><audio controls src="samples/speaker_specific/sentence_2.wav"></audio></td>
+        <td><audio controls src="samples/lora_specific_speaker/sentence_2.wav"></audio></td>
+      </tr>
+      <tr>
+        <td>Το τρίτο δείγμα ήχου εδώ.</td>
+        <td><audio controls src="samples/parler_tts_greek_finetuning/sentence_3.wav"></audio></td>
+        <td><audio controls src="samples/deterministic_prompts/sentence_3.wav"></audio></td>
+        <td><audio controls src="samples/speaker_specific/sentence_3.wav"></audio></td>
+        <td><audio controls src="samples/lora_specific_speaker/sentence_3.wav"></audio></td>
+      </tr>
+      <tr>
+        <td>Η τέταρτη ηχογράφηση για δοκιμή.</td>
+        <td><audio controls src="samples/parler_tts_greek_finetuning/sentence_4.wav"></audio></td>
+        <td><audio controls src="samples/deterministic_prompts/sentence_4.wav"></audio></td>
+        <td><audio controls src="samples/speaker_specific/sentence_4.wav"></audio></td>
+        <td><audio controls src="samples/lora_specific_speaker/sentence_4.wav"></audio></td>
+      </tr>
+      <tr>
+        <td>Το πέμπτο δείγμα ακολουθεί εδώ.</td>
+        <td><audio controls src="samples/parler_tts_greek_finetuning/sentence_5.wav"></audio></td>
+        <td><audio controls src="samples/deterministic_prompts/sentence_5.wav"></audio></td>
+        <td><audio controls src="samples/speaker_specific/sentence_5.wav"></audio></td>
+        <td><audio controls src="samples/lora_specific_speaker/sentence_5.wav"></audio></td>
+      </tr>
+      <tr>
+        <td>Αυτό είναι το έκτο ηχητικό παράδειγμα.</td>
+        <td><audio controls src="samples/parler_tts_greek_finetuning/sentence_6.wav"></audio></td>
+        <td><audio controls src="samples/deterministic_prompts/sentence_6.wav"></audio></td>
+        <td><audio controls src="samples/speaker_specific/sentence_6.wav"></audio></td>
+        <td><audio controls src="samples/lora_specific_speaker/sentence_6.wav"></audio></td>
+      </tr>
+      <tr>
+        <td>Μια έβδομη πρόταση για αξιολόγηση.</td>
+        <td><audio controls src="samples/parler_tts_greek_finetuning/sentence_7.wav"></audio></td>
+        <td><audio controls src="samples/deterministic_prompts/sentence_7.wav"></audio></td>
+        <td><audio controls src="samples/speaker_specific/sentence_7.wav"></audio></td>
+        <td><audio controls src="samples/lora_specific_speaker/sentence_7.wav"></audio></td>
+      </tr>
+      <tr>
+        <td>Η όγδοη ηχογράφηση είναι εδώ.</td>
+        <td><audio controls src="samples/parler_tts_greek_finetuning/sentence_8.wav"></audio></td>
+        <td><audio controls src="samples/deterministic_prompts/sentence_8.wav"></audio></td>
+        <td><audio controls src="samples/speaker_specific/sentence_8.wav"></audio></td>
+        <td><audio controls src="samples/lora_specific_speaker/sentence_8.wav"></audio></td>
+      </tr>
+      <tr>
+        <td>Το ένατο δείγμα χρησιμοποιείται για δοκιμή.</td>
+        <td><audio controls src="samples/parler_tts_greek_finetuning/sentence_9.wav"></audio></td>
+        <td><audio controls src="samples/deterministic_prompts/sentence_9.wav"></audio></td>
+        <td><audio controls src="samples/speaker_specific/sentence_9.wav"></audio></td>
+        <td><audio controls src="samples/lora_specific_speaker/sentence_9.wav"></audio></td>
+      </tr>
+      <tr>
+        <td>Η δέκατη πρόταση ολοκληρώνει τη λίστα.</td>
+        <td><audio controls src="samples/parler_tts_greek_finetuning/sentence_10.wav"></audio></td>
+        <td><audio controls src="samples/deterministic_prompts/sentence_10.wav"></audio></td>
+        <td><audio controls src="samples/speaker_specific/sentence_10.wav"></audio></td>
+        <td><audio controls src="samples/lora_specific_speaker/sentence_10.wav"></audio></td>
+      </tr>
+    </tbody>
+  </table>
 
-  <div class="model-section">
-    <div class="model-title">Deterministic prompt Fine-tuning</div>
-    <div class="samples-grid">
-      <div class="sample">
-        <p>Sample 1</p>
-        <audio controls src="samples/deterministic_prompts/sentence_1.wav"></audio>
-      </div>
-      <div class="sample">
-        <p>Sample 2</p>
-        <audio controls src="samples/deterministic_prompts/sentence_2.wav"></audio>
-      </div>
-      <div class="sample">
-        <p>Sample 3</p>
-        <audio controls src="samples/deterministic_prompts/sentence_3.wav"></audio>
-      </div>
-      <div class="sample">
-        <p>Sample 4</p>
-        <audio controls src="samples/deterministic_prompts/sentence_4.wav"></audio>
-      </div>
-      <div class="sample">
-        <p>Sample 5</p>
-        <audio controls src="samples/deterministic_prompts/sentence_5.wav"></audio>
-      </div>
-      <!-- Add more samples here -->
-    </div>
-  </div>
-
-  <div class="model-section">
-    <div class="model-title">Speaker-Specific Fine-tuning</div>
-    <div class="samples-grid">
-      <div class="sample">
-        <p>Sample 1</p>
-        <audio controls src="samples/speaker_specific/sentence_1.wav"></audio>
-      </div>
-      <div class="sample">
-        <p>Sample 2</p>
-        <audio controls src="samples/speaker_specific/sentence_2.wav"></audio>
-      </div>
-      <div class="sample">
-        <p>Sample 3</p>
-        <audio controls src="samples/speaker_specific/sentence_3.wav"></audio>
-      </div>
-      <div class="sample">
-        <p>Sample 4</p>
-        <audio controls src="samples/speaker_specific/sentence_4.wav"></audio>
-      </div>
-      <div class="sample">
-        <p>Sample 5</p>
-        <audio controls src="samples/speaker_specific/sentence_5.wav"></audio>
-      </div>
-      <!-- Add more samples here -->
-    </div>
-  </div>
-
-
-  <div class="model-section">
-    <div class="model-title">LORA Speaker-Specific Fine-tuning</div>
-    <div class="samples-grid">
-      <div class="sample">
-        <p>Sample 1</p>
-        <audio controls src="samples/lora_specific_speaker/sentence_1.wav"></audio>
-      </div>
-      <div class="sample">
-        <p>Sample 2</p>
-        <audio controls src="samples/lora_specific_speaker/sentence_2.wav"></audio>
-      </div>
-      <div class="sample">
-        <p>Sample 3</p>
-        <audio controls src="samples/lora_specific_speaker/sentence_3.wav"></audio>
-      </div>
-      <div class="sample">
-        <p>Sample 4</p>
-        <audio controls src="samples/lora_specific_speaker/sentence_4.wav"></audio>
-      </div>
-      <div class="sample">
-        <p>Sample 5</p>
-        <audio controls src="samples/lora_specific_speaker/sentence_5.wav"></audio>
-      </div>
-      <!-- Add more samples here -->
-    </div>
-  </div>
   <footer>
     © 2025 Your Name – TTS Demo Page
   </footer>
