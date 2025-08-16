@@ -17,7 +17,7 @@ RESULTS_CSV_FILE = "evaluation_results.csv"
 # The output image file for the summary chart
 CHART_FILE = "evaluation_summary.png"
 # The Hugging Face model to use for Automatic Speech Recognition (ASR)
-ASR_MODEL_ID = "lightaime/whisper-large-v2-greek"
+ASR_MODEL_ID = "jonatasgrosman/wav2vec2-large-xlsr-53-greek"
 
 def setup_asr_pipeline():
     """Initializes and returns the ASR pipeline."""
