@@ -2,6 +2,7 @@ import os
 import pandas as pd
 from speechbrain.inference.speaker import SpeakerRecognition
 import torch
+import torchaudio
 from tqdm import tqdm
 import sys
 
@@ -13,22 +14,31 @@ SAMPLES_DIR = "samples"
 BASELINE_DIR_NAME = "baseline" # Or "_ASR_BASELINE" to match your other scripts
 
 # The names of the two speaker-specific model folders you want to evaluate
-# NOTE: These folders must be inside the SAMPLES_DIR
 MODEL_1_NAME = "lora_specific_speaker" 
 MODEL_2_NAME = "speaker_specific"
+
+# A name for our baseline-to-itself comparison in the final report
+BASELINE_SELF_SIM_NAME = "_BASELINE_SELF_SIMILARITY"
 
 # The output file where detailed similarity results will be stored
 RESULTS_CSV_FILE = "similarity_evaluation_results.csv"
 
 # The Hugging Face model ID for the speaker recognition model.
-# "speechbrain/spkrec-ecapa-voxceleb" is a powerful and standard choice.
-# This model is multilingual and works well for Greek.
 SPEAKER_MODEL_ID = "speechbrain/spkrec-ecapa-voxceleb"
+
+def to_mono(signal):
+    """
+    --- NEW HELPER FUNCTION ---
+    Averages the channels of a stereo signal to convert it to mono.
+    """
+    if signal.shape[0] > 1: # Check if number of channels is more than 1
+        return torch.mean(signal, dim=0, keepdim=True)
+    return signal
 
 def calculate_similarity_for_models():
     """
     Main function to find corresponding audio files, calculate Speaker Similarity
-    between the baseline and each model, and save the results.
+    between the baseline, models, and the baseline itself, and save the results.
     """
     print("--- Starting Speaker Similarity (SIM-S) Evaluation ---")
     
@@ -42,13 +52,11 @@ def calculate_similarity_for_models():
     for path, name in [(baseline_path, BASELINE_DIR_NAME), (model1_path, MODEL_1_NAME), (model2_path, MODEL_2_NAME)]:
         if not os.path.isdir(path):
             print(f"\nFATAL ERROR: The directory '{name}' was not found at path: {path}")
-            print("Please check your CONFIGURATION section and file structure.")
             sys.exit(1)
             
     # Load the Speaker Recognition model
     print(f"Loading speaker recognition model: {SPEAKER_MODEL_ID}...")
     try:
-        # Check if GPU is available
         device = "cuda" if torch.cuda.is_available() else "cpu"
         print(f"Using device: {device}")
         speaker_model = SpeakerRecognition.from_hparams(source=SPEAKER_MODEL_ID, run_opts={"device":device})
@@ -83,19 +91,29 @@ def calculate_similarity_for_models():
             continue
 
         try:
-            # Generate the embedding for the original, ground-truth audio
-            embedding_base = speaker_model.encode_file(baseline_audio_path)
+            # Load the audio files into tensors
+            signal_base, fs_base = torchaudio.load(baseline_audio_path)
+            signal_model1, fs_model1 = torchaudio.load(model1_audio_path)
+            signal_model2, fs_model2 = torchaudio.load(model2_audio_path)
             
-            # Generate embeddings for each model's synthesized audio
-            embedding_model1 = speaker_model.encode_file(model1_audio_path)
-            embedding_model2 = speaker_model.encode_file(model2_audio_path)
+            # --- MODIFIED: Ensure all audio is mono before processing ---
+            signal_base = to_mono(signal_base)
+            signal_model1 = to_mono(signal_model1)
+            signal_model2 = to_mono(signal_model2)
+
+            # Generate the embeddings from the audio tensors
+            embedding_base = speaker_model.encode_batch(signal_base)
+            embedding_model1 = speaker_model.encode_batch(signal_model1)
+            embedding_model2 = speaker_model.encode_batch(signal_model2)
             
-            # Calculate the cosine similarity. A score closer to 1.0 is better.
-            sim_model1 = cosine_similarity(embedding_base, embedding_model1).item()
-            sim_model2 = cosine_similarity(embedding_base, embedding_model2).item()
+            # Calculate the cosine similarity. .squeeze() removes unnecessary dimensions.
+            sim_model1 = cosine_similarity(embedding_base.squeeze(), embedding_model1.squeeze()).item()
+            sim_model2 = cosine_similarity(embedding_base.squeeze(), embedding_model2.squeeze()).item()
+            sim_baseline = cosine_similarity(embedding_base.squeeze(), embedding_base.squeeze()).item()
 
             results_list.append({"model": MODEL_1_NAME, "filename": filename, "similarity": sim_model1})
             results_list.append({"model": MODEL_2_NAME, "filename": filename, "similarity": sim_model2})
+            results_list.append({"model": BASELINE_SELF_SIM_NAME, "filename": filename, "similarity": sim_baseline})
 
         except Exception as e:
             tqdm.write(f"--> ERROR processing file '{filename}'. Skipping. Error: {e}")
@@ -111,8 +129,10 @@ def calculate_similarity_for_models():
     
     # Calculate and print the average similarity for each model
     summary_df = results_df.groupby('model')['similarity'].mean().reset_index()
+    summary_df = summary_df.sort_values(by='similarity', ascending=False)
+    
     print("\n--- Average Speaker Similarity Scores (Higher is Better) ---")
-    print(summary_df)
+    print(summary_df.to_string(index=False))
     
     return results_df
 
