@@ -1,3 +1,4 @@
+
 import os
 import pandas as pd
 import librosa
@@ -10,13 +11,12 @@ import sys
 SAMPLES_DIR = "samples"
 
 # The name of the folder with the original, ground-truth human audio
-BASELINE_DIR_NAME = "_ASR_BASELINE" 
+BASELINE_DIR_NAME = "baseline" 
 
 # The names of the two speaker-specific model folders you want to evaluate
 # NOTE: These folders must be inside the SAMPLES_DIR
 MODEL_1_NAME = "lora_specific_speaker" 
 MODEL_2_NAME = "speaker_specific"
-
 # The output file where detailed MCD results will be stored
 RESULTS_CSV_FILE = "mcd_evaluation_results.csv"
 
