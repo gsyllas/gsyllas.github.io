@@ -165,9 +165,24 @@
       </tr>
     </tbody>
   </table>
-
+    <div class="extra-examples-section">
+    <h2>Best Performing Model Extra Examples</h2>
+    <div class="audio-grid">
+      <!-- Loop for 30 audio files -->
+      <script>
+        for (let i = 1; i <= 30; i++) {
+          document.write(`
+            <div class="audio-item">
+              <p>Sentence ${i}</p>
+              <audio controls src="https://gsyllas.github.io/samples/deterministic_LORA_speaker_commonVoice/sentence_${i}.wav"></audio>
+            </div>
+          `);
+        }
+      </script>
+    </div>
+  </div>
   <footer>
-    © 2025 Your Name – TTS Demo Page
+    © 2025 Syllas Giorgos – TTS Demo Page
   </footer>
 </body>
 </html>
