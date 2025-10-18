@@ -74,9 +74,20 @@
     }
 
     .toggle-button {
-      margin-bottom: 10px;
-      padding: 5px 10px;
+      background-color: #2c3e50;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
       cursor: pointer;
+      margin: 1rem 0;
+      font-size: 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .toggle-button:hover {
+      background-color: #1a252f;
     }
   </style>
 </head>
@@ -142,8 +153,9 @@
     </tbody>
   </table>
   <h2>Description Evaluation</h2>
-  <div> DESCRIBE THE  Description Evaluation Description Evaluation Description Evaluation
-    Description Evaluation Description Evaluation Description Evaluation Description Evaluation</div>
+  <div> This section compares the outputs of the text-to-speech models
+    when prompted with different style descriptions (e.g., fast, slow, noisy, clean)
+    to evaluate their impact on speech characteristics.</div>
 
   <h3>LORA Speaker-Specific</h3>
   <table>
@@ -333,10 +345,11 @@
     </tbody>
   </table>
 
+  <div></div>
+  <div></div>
 
-
-  <button class="toggle-button" onclick="toggleSection()">Toggle Extra Examples</button>
-  <div class="extra-examples-section" id="extraSection">
+  <button class="toggle-button" onclick="toggleSection()">Toggle for extra examples</button>
+  <div class="extra-examples-section" id="extraSection" style="display: none;">
     <div class="extra-examples-section">
       <h2>Best Performing Model Extra Examples</h2>
       <div class="audio-grid">
