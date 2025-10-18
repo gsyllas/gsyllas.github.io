@@ -72,6 +72,12 @@
       color: #999;
       font-size: 0.9rem;
     }
+
+    .toggle-button {
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -83,7 +89,7 @@
   <table>
     <thead>
       <tr>
-        <th>Κείμενο</th>
+        <th>Text</th>
         <th>Initial Fine-tuning</th>
         <th>Deterministic Prompt Fine-tuning</th>
         <th>Speaker-Specific Fine-tuning</th>
@@ -106,20 +112,6 @@
         <td><audio controls src="samples/lora_specific_speaker/sentence_2.wav"></audio></td>
       </tr>
       <tr>
-        <td>Πώς θα μπορούσα να φτάσω στον σταθμό των τρένων γρήγορα;</td>
-        <td><audio controls src="samples/parler_tts_greek_finetuning/sentence_3.wav"></audio></td>
-        <td><audio controls src="samples/deterministic_prompts/sentence_3.wav"></audio></td>
-        <td><audio controls src="samples/speaker_specific/sentence_3.wav"></audio></td>
-        <td><audio controls src="samples/lora_specific_speaker/sentence_3.wav"></audio></td>
-      </tr>
-      <tr>
-        <td>Τα παιδιά έτρεχαν χαρούμενα στην παραλία, παίζοντας με την άμμο.</td>
-        <td><audio controls src="samples/parler_tts_greek_finetuning/sentence_4.wav"></audio></td>
-        <td><audio controls src="samples/deterministic_prompts/sentence_4.wav"></audio></td>
-        <td><audio controls src="samples/speaker_specific/sentence_4.wav"></audio></td>
-        <td><audio controls src="samples/lora_specific_speaker/sentence_4.wav"></audio></td>
-      </tr>
-      <tr>
         <td>Μια λεπτή γραμμή χωρίζει τη φαντασία από την πραγματικότητα.</td>
         <td><audio controls src="samples/parler_tts_greek_finetuning/sentence_5.wav"></audio></td>
         <td><audio controls src="samples/deterministic_prompts/sentence_5.wav"></audio></td>
@@ -134,25 +126,11 @@
         <td><audio controls src="samples/lora_specific_speaker/sentence_6.wav"></audio></td>
       </tr>
       <tr>
-        <td>Το ρολόι του τοίχου χτύπησε δώδεκα, ανακοινώνοντας το μεσημέρι.</td>
-        <td><audio controls src="samples/parler_tts_greek_finetuning/sentence_7.wav"></audio></td>
-        <td><audio controls src="samples/deterministic_prompts/sentence_7.wav"></audio></td>
-        <td><audio controls src="samples/speaker_specific/sentence_7.wav"></audio></td>
-        <td><audio controls src="samples/lora_specific_speaker/sentence_7.wav"></audio></td>
-      </tr>
-      <tr>
         <td>Είδα ένα πολύχρωμο ουράνιο τόξο μετά τη δυνατή καταιγίδα.</td>
         <td><audio controls src="samples/parler_tts_greek_finetuning/sentence_8.wav"></audio></td>
         <td><audio controls src="samples/deterministic_prompts/sentence_8.wav"></audio></td>
         <td><audio controls src="samples/speaker_specific/sentence_8.wav"></audio></td>
         <td><audio controls src="samples/lora_specific_speaker/sentence_8.wav"></audio></td>
-      </tr>
-      <tr>
-        <td>Το βιβλίο που διάβασα χθες ήταν γεμάτο συναρπαστικές ιστορίες.</td>
-        <td><audio controls src="samples/parler_tts_greek_finetuning/sentence_9.wav"></audio></td>
-        <td><audio controls src="samples/deterministic_prompts/sentence_9.wav"></audio></td>
-        <td><audio controls src="samples/speaker_specific/sentence_9.wav"></audio></td>
-        <td><audio controls src="samples/lora_specific_speaker/sentence_9.wav"></audio></td>
       </tr>
       <tr>
         <td>Μην ξεχάσεις να φέρεις την ομπρέλα σου, γιατί ο καιρός είναι απρόβλεπτος.</td>
@@ -164,13 +142,14 @@
     </tbody>
   </table>
   <h2>Description Evaluation</h2>
-  <div class="intro-text"> DESCRIBE THE  Description Evaluation Description Evaluation Description Evaluation
+  <div> DESCRIBE THE  Description Evaluation Description Evaluation Description Evaluation
     Description Evaluation Description Evaluation Description Evaluation Description Evaluation</div>
-  <h3>Initial Fine-tuning (1--52_epochs_speakers)</h3>
+
+  <h3>LORA Speaker-Specific</h3>
   <table>
     <thead>
       <tr>
-        <th>Κείμενο</th>
+        <th>Text</th>
         <th>noisy</th>
         <th>clean</th>
         <th>animated</th>
@@ -179,92 +158,45 @@
     </thead>
     <tbody>
       <tr>
-        <td>Πόσο ξύδι θα ξύσει ο ξυλουργός;</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts1/sentence_1.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts2/sentence_1.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts3/sentence_1.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts4/sentence_1.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
         <td>Ο άνεμος φυσούσε δυνατά, μα η θάλασσα έμενε ήρεμη, σαν να κρατούσε την ανάσα της.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts1/sentence_2.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts2/sentence_2.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts3/sentence_2.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts4/sentence_2.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Σύμφωνα με τον χάρτη, πρέπει να στρίψουμε δεξιά μετά τη δεύτερη γέφυρα και πριν από το παλιό εργοστάσιο.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts1/sentence_3.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts2/sentence_3.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts3/sentence_3.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts4/sentence_3.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Η Μαρία είπε: «Δεν είναι δυνατόν! Εσύ έκανες όλη αυτή τη δουλειά σε μία μέρα;»</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts1/sentence_4.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts2/sentence_4.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts3/sentence_4.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts4/sentence_4.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker11/sentence_2.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker12/sentence_2.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker13/sentence_2.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker14/sentence_2.wav"></audio></td>
         </td>
       </tr>
       <tr>
         <td>Αν και η θερμοκρασία ήταν χαμηλή, εκείνος περπατούσε χωρίς παλτό, χαμογελώντας στον ήλιο.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts1/sentence_5.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts2/sentence_5.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts3/sentence_5.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts4/sentence_5.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Το μικρό κουτάβι κύλησε στην αυλή, κυνηγώντας μια πολύχρωμη μπάλα με αστείρευτη ενέργεια.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts1/sentence_6.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts2/sentence_6.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts3/sentence_6.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts4/sentence_6.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Το ποτάμι κυλούσε αργά, κουβαλώντας φύλλα και μικρά κλαδιά προς τη θάλασσα.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts1/sentence_7.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts2/sentence_7.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts3/sentence_7.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts4/sentence_7.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker11/sentence_5.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker12/sentence_5.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker13/sentence_5.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker14/sentence_5.wav"></audio></td>
         </td>
       </tr>
       <tr>
         <td>Η φωνή της αντηχούσε στην άδεια αίθουσα, δημιουργώντας μια αίσθηση μυστηρίου.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts1/sentence_8.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts2/sentence_8.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts3/sentence_8.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts4/sentence_8.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker11/sentence_8.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker12/sentence_8.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker13/sentence_8.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker14/sentence_8.wav"></audio></td>
         </td>
       </tr>
       <tr>
         <td>Τα φύλλα των δέντρων ψιθύριζαν απαλά, καθώς το αεράκι περνούσε ανάμεσά τους.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts1/sentence_9.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts2/sentence_9.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts3/sentence_9.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts4/sentence_9.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Ο ήχος των κυμάτων συνόδευε το απαλό φως του φεγγαριού πάνω στην ακτή.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts1/sentence_10.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts2/sentence_10.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts3/sentence_10.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts4/sentence_10.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker11/sentence_9.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker12/sentence_9.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker13/sentence_9.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker14/sentence_9.wav"></audio></td>
         </td>
       </tr>
     </tbody>
   </table>
-  <h3>Deterministic Prompt Fine-tuning (2)</h3>
+
+  <h3>Speaker-Specific Fine-tuning</h3>
   <table>
     <thead>
       <tr>
-        <th>Κείμενο</th>
+        <th>Text</th>
         <th>noisy</th>
         <th>clean</th>
         <th>animated</th>
@@ -272,138 +204,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Πόσο ξύδι θα ξύσει ο ξυλουργός, αν ο ξυλουργός ξύσει ξύδι;</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts1/sentence_1.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts2/sentence_1.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts3/sentence_1.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts4/sentence_1.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Ο άνεμος φυσούσε δυνατά, μα η θάλασσα έμενε ήρεμη, σαν να κρατούσε την ανάσα της.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts1/sentence_2.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts2/sentence_2.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts3/sentence_2.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts4/sentence_2.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Σύμφωνα με τον χάρτη, πρέπει να στρίψουμε δεξιά μετά τη δεύτερη γέφυρα και πριν από το παλιό εργοστάσιο.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts1/sentence_3.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts2/sentence_3.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts3/sentence_3.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts4/sentence_3.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Η Μαρία είπε: «Δεν είναι δυνατόν! Εσύ έκανες όλη αυτή τη δουλειά σε μία μέρα;»</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts1/sentence_4.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts2/sentence_4.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts3/sentence_4.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts4/sentence_4.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Αν και η θερμοκρασία ήταν χαμηλή, εκείνος περπατούσε χωρίς παλτό, χαμογελώντας στον ήλιο.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts1/sentence_5.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts2/sentence_5.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts3/sentence_5.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts4/sentence_5.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Το μικρό κουτάβι κύλησε στην αυλή, κυνηγώντας μια πολύχρωμη μπάλα με αστείρευτη ενέργεια.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts1/sentence_6.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts2/sentence_6.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts3/sentence_6.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts4/sentence_6.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Το ποτάμι κυλούσε αργά, κουβαλώντας φύλλα και μικρά κλαδιά προς τη θάλασσα.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts1/sentence_7.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts2/sentence_7.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts3/sentence_7.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts4/sentence_7.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Η φωνή της αντηχούσε στην άδεια αίθουσα, δημιουργώντας μια αίσθηση μυστηρίου.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts1/sentence_8.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts2/sentence_8.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts3/sentence_8.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts4/sentence_8.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Τα φύλλα των δέντρων ψιθύριζαν απαλά, καθώς το αεράκι περνούσε ανάμεσά τους.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts1/sentence_9.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts2/sentence_9.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts3/sentence_9.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts4/sentence_9.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Ο ήχος των κυμάτων συνόδευε το απαλό φως του φεγγαριού πάνω στην ακτή.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts1/sentence_10.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts2/sentence_10.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts3/sentence_10.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts4/sentence_10.wav"></audio></td>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Speaker-Specific Fine-tuning (4--llm_finetuned_speaker1_correct)</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Κείμενο</th>
-        <th>noisy</th>
-        <th>clean</th>
-        <th>animated</th>
-        <th>slow</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Πόσο ξύδι θα ξύσει ο ξυλουργός;</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts1/sentence_1.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts2/sentence_1.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts3/sentence_1.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts4/sentence_1.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Ο άνεμος φυσούσε δυνατά, μα η θάλασσα έμενε ήρεμη, σαν να κρατούσε την ανάσα της.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts1/sentence_2.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts2/sentence_2.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts3/sentence_2.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts4/sentence_2.wav"></audio></td>
-        </td>
-      </tr>
       <tr>
         <td>Σύμφωνα με τον χάρτη, πρέπει να στρίψουμε δεξιά μετά τη δεύτερη γέφυρα και πριν από το παλιό εργοστάσιο.</td>
         <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts1/sentence_3.wav"></audio></td>
         <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts2/sentence_3.wav"></audio></td>
         <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts3/sentence_3.wav"></audio></td>
         <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts4/sentence_3.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Η Μαρία είπε: «Δεν είναι δυνατόν! Εσύ έκανες όλη αυτή τη δουλειά σε μία μέρα;»</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts1/sentence_4.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts2/sentence_4.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts3/sentence_4.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts4/sentence_4.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Αν και η θερμοκρασία ήταν χαμηλή, εκείνος περπατούσε χωρίς παλτό, χαμογελώντας στον ήλιο.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts1/sentence_5.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts2/sentence_5.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts3/sentence_5.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts4/sentence_5.wav"></audio></td>
         </td>
       </tr>
       <tr>
@@ -423,22 +229,6 @@
         </td>
       </tr>
       <tr>
-        <td>Η φωνή της αντηχούσε στην άδεια αίθουσα, δημιουργώντας μια αίσθηση μυστηρίου.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts1/sentence_8.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts2/sentence_8.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts3/sentence_8.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts4/sentence_8.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Τα φύλλα των δέντρων ψιθύριζαν απαλά, καθώς το αεράκι περνούσε ανάμεσά τους.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts1/sentence_9.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts2/sentence_9.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts3/sentence_9.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts4/sentence_9.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
         <td>Ο ήχος των κυμάτων συνόδευε το απαλό φως του φεγγαριού πάνω στην ακτή.</td>
         <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts1/sentence_10.wav"></audio></td>
         <td><audio controls src="samples/appendixDescriptionEvaluation/4--llm_finetuned_speaker1_correct/det_prompts2/sentence_10.wav"></audio></td>
@@ -448,11 +238,59 @@
       </tr>
     </tbody>
   </table>
-  <h3>LORA Speaker-Specific (5--LORA)</h3>
+
+  <h3>Deterministic Prompt Fine-tuning</h3>
   <table>
     <thead>
       <tr>
-        <th>Κείμενο</th>
+        <th>Text</th>
+        <th>noisy</th>
+        <th>clean</th>
+        <th>animated</th>
+        <th>slow</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ο άνεμος φυσούσε δυνατά, μα η θάλασσα έμενε ήρεμη, σαν να κρατούσε την ανάσα της.</td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts1/sentence_2.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts2/sentence_2.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts3/sentence_2.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts4/sentence_2.wav"></audio></td>
+        </td>
+      </tr>
+      <tr>
+        <td>Το μικρό κουτάβι κύλησε στην αυλή, κυνηγώντας μια πολύχρωμη μπάλα με αστείρευτη ενέργεια.</td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts1/sentence_6.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts2/sentence_6.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts3/sentence_6.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts4/sentence_6.wav"></audio></td>
+        </td>
+      </tr>
+      <tr>
+        <td>Η φωνή της αντηχούσε στην άδεια αίθουσα, δημιουργώντας μια αίσθηση μυστηρίου.</td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts1/sentence_8.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts2/sentence_8.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts3/sentence_8.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts4/sentence_8.wav"></audio></td>
+        </td>
+      </tr>
+      <tr>
+        <td>Τα φύλλα των δέντρων ψιθύριζαν απαλά, καθώς το αεράκι περνούσε ανάμεσά τους.</td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts1/sentence_9.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts2/sentence_9.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts3/sentence_9.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/2--deterministic_50_epochs/det_prompts4/sentence_9.wav"></audio></td>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Initial Fine-tuning</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Text</th>
         <th>noisy</th>
         <th>clean</th>
         <th>animated</th>
@@ -462,102 +300,66 @@
     <tbody>
       <tr>
         <td>Πόσο ξύδι θα ξύσει ο ξυλουργός;</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker11/sentence_1.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker12/sentence_1.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker13/sentence_1.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker14/sentence_1.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Ο άνεμος φυσούσε δυνατά, μα η θάλασσα έμενε ήρεμη, σαν να κρατούσε την ανάσα της.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker11/sentence_2.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker12/sentence_2.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker13/sentence_2.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker14/sentence_2.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Σύμφωνα με τον χάρτη, πρέπει να στρίψουμε δεξιά μετά τη δεύτερη γέφυρα και πριν από το παλιό εργοστάσιο.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker11/sentence_3.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker12/sentence_3.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker13/sentence_3.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker14/sentence_3.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts1/sentence_1.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts2/sentence_1.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts3/sentence_1.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts4/sentence_1.wav"></audio></td>
         </td>
       </tr>
       <tr>
         <td>Η Μαρία είπε: «Δεν είναι δυνατόν! Εσύ έκανες όλη αυτή τη δουλειά σε μία μέρα;»</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker11/sentence_4.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker12/sentence_4.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker13/sentence_4.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker14/sentence_4.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Αν και η θερμοκρασία ήταν χαμηλή, εκείνος περπατούσε χωρίς παλτό, χαμογελώντας στον ήλιο.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker11/sentence_5.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker12/sentence_5.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker13/sentence_5.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker14/sentence_5.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Το μικρό κουτάβι κύλησε στην αυλή, κυνηγώντας μια πολύχρωμη μπάλα με αστείρευτη ενέργεια.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker11/sentence_6.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker12/sentence_6.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker13/sentence_6.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker14/sentence_6.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts1/sentence_4.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts2/sentence_4.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts3/sentence_4.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts4/sentence_4.wav"></audio></td>
         </td>
       </tr>
       <tr>
         <td>Το ποτάμι κυλούσε αργά, κουβαλώντας φύλλα και μικρά κλαδιά προς τη θάλασσα.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker11/sentence_7.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker12/sentence_7.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker13/sentence_7.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker14/sentence_7.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Η φωνή της αντηχούσε στην άδεια αίθουσα, δημιουργώντας μια αίσθηση μυστηρίου.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker11/sentence_8.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker12/sentence_8.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker13/sentence_8.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker14/sentence_8.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts1/sentence_7.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts2/sentence_7.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts3/sentence_7.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts4/sentence_7.wav"></audio></td>
         </td>
       </tr>
       <tr>
         <td>Τα φύλλα των δέντρων ψιθύριζαν απαλά, καθώς το αεράκι περνούσε ανάμεσά τους.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker11/sentence_9.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker12/sentence_9.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker13/sentence_9.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker14/sentence_9.wav"></audio></td>
-        </td>
-      </tr>
-      <tr>
-        <td>Ο ήχος των κυμάτων συνόδευε το απαλό φως του φεγγαριού πάνω στην ακτή.</td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker11/sentence_10.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker12/sentence_10.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker13/sentence_10.wav"></audio></td>
-        <td><audio controls src="samples/appendixDescriptionEvaluation/5--LORA/det_prompts_speaker14/sentence_10.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts1/sentence_9.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts2/sentence_9.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts3/sentence_9.wav"></audio></td>
+        <td><audio controls src="samples/appendixDescriptionEvaluation/1--52_epochs_speakers/det_prompts4/sentence_9.wav"></audio></td>
         </td>
       </tr>
     </tbody>
   </table>
-  <div class="extra-examples-section">
-    <h2>Best Performing Model Extra Examples</h2>
-    <div class="audio-grid">
-      <!-- Loop for 30 audio files -->
-      <script>
-        for (let i = 1; i <= 30; i++) {
-          document.write(`
-            <div class="audio-item">
-              <p>Sentence ${i}</p>
-              <audio controls src="https://gsyllas.github.io/samples/deterministic_LORA_speaker_commonVoice/sentence_${i}.wav"></audio>
-            </div>
-          `);
-        }
-      </script>
+
+
+
+  <button class="toggle-button" onclick="toggleSection()">Toggle Extra Examples</button>
+  <div class="extra-examples-section" id="extraSection">
+    <div class="extra-examples-section">
+      <h2>Best Performing Model Extra Examples</h2>
+      <div class="audio-grid">
+        <!-- Loop for 30 audio files -->
+        <script>
+          for (let i = 1; i <= 30; i++) {
+            document.write(`
+                <div class="audio-item">
+                  <p>Sentence ${i}</p>
+                  <audio controls src="https://gsyllas.github.io/samples/deterministic_LORA_speaker_commonVoice/sentence_${i}.wav"></audio>
+                </div>
+              `);
+          }
+        </script>
+      </div>
     </div>
   </div>
+  <script>
+    function toggleSection() {
+      const section = document.getElementById('extraSection');
+      section.style.display = section.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
   <footer> © 2025 Syllas Giorgos – TTS Demo Page </footer>
 </body>
 
